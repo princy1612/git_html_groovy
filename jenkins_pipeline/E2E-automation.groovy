@@ -1,7 +1,8 @@
 //groovy
 node {
     stage('Git checkout') { // for display purposes
-        git 'https://github.com/BushnevYuri/e2e-automation-pipeline.git'
+        
+     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/princy1612/git_html_groovy.git']]])
     }
     stage('Smoke') {
         try {
